@@ -8,7 +8,7 @@ export const HeaderContainer = styled.header`
 
   nav {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
 
     a {
       padding: 0.25rem;
@@ -34,14 +34,42 @@ export const HeaderContainer = styled.header`
       &.active {
         color: ${({ theme }) => theme['green-500']};
       }
+
+      span {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    nav {
+      gap: 2rem;
+    }
+
+    nav a span {
+      display: block;
     }
   }
 `
 
 export const LogoContainer = styled(NavLink)`
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.5rem;
+
   color: ${({ theme }) => theme['gray-100']};
-  text-decoration: none;
   font-family: 'Roboto Mono', monospace;
+  text-decoration: none;
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    gap: 1rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
 `

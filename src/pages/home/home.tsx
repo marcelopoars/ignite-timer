@@ -53,6 +53,7 @@ export function Home() {
         <FormProvider {...newCycleForm}>
           <NewCycleForm />
         </FormProvider>
+
         <Countdown />
 
         {activeCycle ? (

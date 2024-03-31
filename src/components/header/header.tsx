@@ -16,11 +16,11 @@ export function Header() {
       <nav>
         <NavLink to="/" title="Timer">
           <Timer size={26} aria-label="Ir para página home" />
-          Timer
+          <span>Timer</span>
         </NavLink>
         <NavLink to="/history" title="History">
           <Scroll size={26} aria-label="Ir para histórico" />
-          History
+          <span>History</span>
         </NavLink>
       </nav>
     </HeaderContainer>

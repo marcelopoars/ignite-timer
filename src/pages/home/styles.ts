@@ -11,7 +11,13 @@ export const HomeContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3.5rem;
+    gap: 2.5rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    form {
+      gap: 3.5rem;
+    }
   }
 `
 
