@@ -9,12 +9,19 @@ export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `
 
 export const InputWraper = styled.div`
   display: flex;
   gap: 0.5rem;
-  /* flex-direction: column; */
+
+  &:first-child {
+    flex: 1;
+  }
 `
 
 const BaseInput = styled.input`

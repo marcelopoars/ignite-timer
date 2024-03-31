@@ -16,6 +16,8 @@ export const StatusWrapper = styled.span<StatusWrapperProps>`
   align-items: center;
   gap: 0.5rem;
 
+  white-space: nowrap;
+
   &::before {
     content: '';
     display: inline-block;

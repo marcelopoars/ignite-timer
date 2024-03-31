@@ -2,14 +2,13 @@ import styled from 'styled-components'
 
 export const HistoryContainer = styled.main`
   flex: 1;
-  padding: 3.5rem;
+  padding: 3rem 0;
 
   display: flex;
   flex-direction: column;
 
-  h2 {
-    font-size: 1.5rem;
-    color: ${({ theme }) => theme['gray-100']};
+  @media screen and (min-width: 1024px) {
+    padding: 3.5rem;
   }
 `
 
@@ -17,6 +16,11 @@ export const HeaderHistory = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  h2 {
+    font-size: 1.5rem;
+    color: ${({ theme }) => theme['gray-100']};
+  }
 `
 
 export const CleanHistoryButton = styled.button`
@@ -45,6 +49,20 @@ export const CleanHistoryButton = styled.button`
 export const HistoryList = styled.div`
   overflow: auto;
   margin-top: 2rem;
+
+  &::-webkit-scrollbar {
+    height: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: ${({ theme }) => theme['gray-900']};
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: ${({ theme }) => theme['green-500']};
+  }
 
   table {
     width: 100%;

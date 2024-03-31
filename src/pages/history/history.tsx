@@ -33,7 +33,7 @@ export function History() {
   return (
     <HistoryContainer>
       <HeaderHistory>
-        <h2>HistoryContainer</h2>
+        <h2>Tarefas</h2>
 
         {!!cycles.length && (
           <CleanHistoryButton onClick={cleanCyclesHistory}>
