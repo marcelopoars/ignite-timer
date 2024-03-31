@@ -46,6 +46,10 @@ export function cyclesReducers(state: CyclesState, action: any) {
         draft.activeCycleId = null
       })
     }
+    case ActionTypes.CLEAN_CYCLES_HISTORY:
+      return produce(state, (draft) => {
+        draft.cycles = []
+      })
     default:
       return state
   }

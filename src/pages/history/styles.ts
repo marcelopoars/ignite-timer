@@ -13,6 +13,35 @@ export const HistoryContainer = styled.main`
   }
 `
 
+export const HeaderHistory = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+export const CleanHistoryButton = styled.button`
+  padding: 0.25rem 0.5rem;
+
+  appearance: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  font-size: 0.875rem;
+  color: ${({ theme }) => theme['gray-100']};
+  background-color: ${({ theme }) => theme['red-500']};
+
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: ${({ theme }) => theme['red-700']};
+  }
+`
+
 export const HistoryList = styled.div`
   overflow: auto;
   margin-top: 2rem;
@@ -48,5 +77,10 @@ export const HistoryList = styled.div`
         width: 50%;
       }
     }
+  }
+
+  p {
+    margin-top: 3rem;
+    text-align: center;
   }
 `

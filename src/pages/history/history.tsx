@@ -7,7 +7,13 @@ import { CyclesContext } from '../../contexts'
 
 import { CycleStatus } from './_components'
 
-import { HistoryContainer, HistoryList } from './styles'
+import {
+  CleanHistoryButton,
+  HeaderHistory,
+  HistoryContainer,
+  HistoryList,
+} from './styles'
+import { Trash } from 'phosphor-react'
 
 interface GetStatusProps {
   finishedDate: Date | undefined
@@ -15,7 +21,7 @@ interface GetStatusProps {
 }
 
 export function History() {
-  const { cycles } = useContext(CyclesContext)
+  const { cycles, cleanCyclesHistory } = useContext(CyclesContext)
 
   function getStatus({ finishedDate, interruptedDate }: GetStatusProps) {
     if (finishedDate) return 'done'
@@ -26,50 +32,59 @@ export function History() {
 
   return (
     <HistoryContainer>
-      <h1>HistoryContainer</h1>
-
+      <HeaderHistory>
+        <h1>HistoryContainer</h1>
+        <CleanHistoryButton onClick={cleanCyclesHistory}>
+          <Trash size={20} />
+          Limpar histórico
+        </CleanHistoryButton>
+      </HeaderHistory>
       <HistoryList>
-        <table>
-          <thead>
-            <tr>
-              <th>Tarefa</th>
-              <th>Duração</th>
-              <th>Início</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cycles.map(
-              ({
-                id,
-                task,
-                minutesAmount,
-                startDate,
-                finishedDate,
-                interruptedDate,
-              }) => (
-                <tr key={id}>
-                  <td>{task}</td>
-                  <td>{minutesAmount}</td>
-                  <td>
-                    {formatDistanceToNow(startDate, {
-                      addSuffix: true,
-                      locale: ptBR,
-                    })}
-                  </td>
-                  <td>
-                    <CycleStatus
-                      status={getStatus({
-                        finishedDate,
-                        interruptedDate,
+        {cycles.length ? (
+          <table>
+            <thead>
+              <tr>
+                <th>Tarefa</th>
+                <th>Duração</th>
+                <th>Início</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cycles.map(
+                ({
+                  id,
+                  task,
+                  minutesAmount,
+                  startDate,
+                  finishedDate,
+                  interruptedDate,
+                }) => (
+                  <tr key={id}>
+                    <td>{task}</td>
+                    <td>{minutesAmount}</td>
+                    <td>
+                      {formatDistanceToNow(startDate, {
+                        addSuffix: true,
+                        locale: ptBR,
                       })}
-                    />
-                  </td>
-                </tr>
-              ),
-            )}
-          </tbody>
-        </table>
+                    </td>
+                    <td>
+                      <CycleStatus
+                        status={getStatus({
+                          finishedDate,
+                          interruptedDate,
+                        })}
+                      />
+                    </td>
+                  </tr>
+                ),
+              )}
+            </tbody>
+          </table>
+        ) : (
+          <p>Nenhuma tarefa na lista.</p>
+        )}
       </HistoryList>
     </HistoryContainer>
   )

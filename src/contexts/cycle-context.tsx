@@ -9,6 +9,7 @@ import {
 import {
   Cycle,
   addNewCycleAction,
+  cleanCyclesHistoryActyon,
   cyclesReducers,
   interruptCurrentCycleAction,
   markCurrentCycleAsFinishedAction,
@@ -29,6 +30,7 @@ interface CyclesContextType {
   setSecondsPassed: (seconds: number) => void
   createNewCycle: (data: CreateCycleData) => void
   interruptCurrentCycle: () => void
+  cleanCyclesHistory: () => void
 }
 
 interface CyclesContextProviderProps {
@@ -97,6 +99,10 @@ export const CyclesContextProvider = ({
     dispatch(markCurrentCycleAsFinishedAction())
   }
 
+  const cleanCyclesHistory = () => {
+    dispatch(cleanCyclesHistoryActyon())
+  }
+
   return (
     <CyclesContext.Provider
       value={{
@@ -108,6 +114,7 @@ export const CyclesContextProvider = ({
         setSecondsPassed,
         createNewCycle,
         interruptCurrentCycle,
+        cleanCyclesHistory,
       }}
     >
       {children}
