@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 :focus-visible {
   outline: 0;
   box-shadow: 0 0 0 2px ${({ theme }) => theme['gray-500']};
+  border-radius: 2px;
 }
 
 body {

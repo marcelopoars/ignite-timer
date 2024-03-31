@@ -7,7 +7,7 @@ export const HistoryContainer = styled.main`
   display: flex;
   flex-direction: column;
 
-  h1 {
+  h2 {
     font-size: 1.5rem;
     color: ${({ theme }) => theme['gray-100']};
   }

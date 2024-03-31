@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
@@ -7,17 +8,19 @@ export const HeaderContainer = styled.header`
 
   nav {
     display: flex;
-    gap: 0.5rem;
+    gap: 2rem;
 
     a {
-      width: 3rem;
-      height: 3rem;
+      padding: 0.25rem;
 
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 0.5rem;
 
       color: ${({ theme }) => theme['gray-100']};
+      font-weight: 700;
+      text-decoration: none;
 
       border-top: 3px solid transparent;
       border-bottom: 3px solid transparent;
@@ -33,4 +36,12 @@ export const HeaderContainer = styled.header`
       }
     }
   }
+`
+
+export const LogoContainer = styled(NavLink)`
+  display: flex;
+  gap: 1rem;
+  color: ${({ theme }) => theme['gray-100']};
+  text-decoration: none;
+  font-family: 'Roboto Mono', monospace;
 `

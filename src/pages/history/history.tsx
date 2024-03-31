@@ -33,11 +33,14 @@ export function History() {
   return (
     <HistoryContainer>
       <HeaderHistory>
-        <h1>HistoryContainer</h1>
-        <CleanHistoryButton onClick={cleanCyclesHistory}>
-          <Trash size={20} />
-          Limpar histórico
-        </CleanHistoryButton>
+        <h2>HistoryContainer</h2>
+
+        {!!cycles.length && (
+          <CleanHistoryButton onClick={cleanCyclesHistory}>
+            <Trash size={20} />
+            Limpar histórico
+          </CleanHistoryButton>
+        )}
       </HeaderHistory>
       <HistoryList>
         {cycles.length ? (
