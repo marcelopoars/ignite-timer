@@ -15,6 +15,8 @@ export const HomeContainer = styled.div`
   }
 
   @media screen and (min-width: 768px) {
+    padding-top: 2rem;
+
     form {
       gap: 3.5rem;
     }

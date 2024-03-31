@@ -14,7 +14,7 @@ export const LayoutContainer = styled.div`
   flex-direction: column;
 
   @media screen and (min-width: 768px) {
-    margin: 5rem auto;
+    margin: 3rem auto 2rem;
     padding: 2.5rem;
     border-radius: 1rem;
   }
